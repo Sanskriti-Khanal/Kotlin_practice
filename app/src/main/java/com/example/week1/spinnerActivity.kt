@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -14,15 +15,29 @@ import androidx.core.view.WindowInsetsCompat
 class spinnerActivity : AppCompatActivity(),AdapterView.OnItemSelectedListener{
     lateinit var spinner: Spinner
     lateinit var textView: TextView
+    lateinit var autoCompleteTextView: AutoCompleteTextView
 
 
     var countries = arrayOf("Nepal","China","Bhutan","Pakistan","Canada","India","Australia")
+    var cities = arrayOf("Kathamandu","Bhaktapur","lalitpur","Kritipur","Kanchanpur")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_spinner)
         spinner = findViewById(R.id.spinner)
         textView = findViewById(R.id.displaySpinner)
+        autoCompleteTextView = findViewById(R.id.autoCompleteTextView2)
+
+        val autoAdapter = ArrayAdapter(
+            this@spinnerActivity,
+            android.R.layout.simple_list_item_1,
+            cities
+
+        )
+
+        autoCompleteTextView.setAdapter(autoAdapter)
+        autoCompleteTextView.threshold=2
 
         val adapter = ArrayAdapter(
             this@spinnerActivity,
