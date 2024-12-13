@@ -8,7 +8,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet.Constraint
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.snackbar.Snackbar
@@ -26,7 +25,7 @@ class UserInteractionActivity : AppCompatActivity() {
         buttonAlert = findViewById(R.id.btnAlert)
         buttonToast = findViewById(R.id.btnToast)
         buttonSnack = findViewById(R.id.btnSnack)
-        main = findViewById(R.id.main)
+        main = findViewById(R.id.listView)
 
         buttonAlert.setOnClickListener{
             val alert =  AlertDialog.Builder(this@UserInteractionActivity)
@@ -64,7 +63,7 @@ class UserInteractionActivity : AppCompatActivity() {
 
 
         }
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.listView)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets

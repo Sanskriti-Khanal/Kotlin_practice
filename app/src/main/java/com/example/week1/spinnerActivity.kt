@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
@@ -63,7 +62,7 @@ class spinnerActivity : AppCompatActivity(),AdapterView.OnItemSelectedListener{
         spinner.adapter = adapter
         spinner.onItemSelectedListener=this
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.listView)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
