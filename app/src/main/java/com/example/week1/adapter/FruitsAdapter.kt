@@ -11,7 +11,7 @@ import com.example.week1.R
 
 class FruitsAdapter (
     val context:Context,
-    val imageList:ArrayList<Int>,
+    val imagelist:ArrayList<Int>,
     val titleList:ArrayList<String>,
     val descList: ArrayList<String>,
 ):RecyclerView.Adapter<FruitsAdapter.FruitsViewHolder>()
@@ -28,14 +28,14 @@ class FruitsAdapter (
     }
 
     override fun getItemCount(): Int {
-        return imageList.size
+        return imagelist.size
 
     }
 
     override fun onBindViewHolder(holder: FruitsViewHolder, position: Int) {
         holder.title.text = titleList[position]
         holder.desc.text = descList[position]
-        holder.image.setImageResource(imageList[position])
+        holder.image.setImageResource(imagelist[position])
 
     }
 }
